@@ -1,11 +1,12 @@
-import React, {FC} from 'react';
+import React from 'react';
 import './App.css';
+import Simpsons from "./components/Simpsons/Simpsons";
 
-const App: FC = ()=> {
+const App = ()=> {
   return (
-    <>
-
-    </>
+    <div>
+  <Simpsons/>
+    </div>
   );
 }
 
