@@ -1,0 +1,8 @@
+.twoColumn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.twoColumn > *{
+    width: 50%;
+}
