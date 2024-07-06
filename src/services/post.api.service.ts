@@ -3,9 +3,7 @@ import {IForm} from "../models/IForm";
 
 let axiosInstance=axios.create({
     baseURL:'https://jsonplaceholder.typicode.com',
-    headers:{
-        "Content-type":'application/json'
-    }
+    headers:{}
 })
 
 const postPost=async (data:IForm): Promise<AxiosResponse>=>{
