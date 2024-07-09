@@ -1,0 +1,10 @@
+.navBlock {
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 20px 0;
+
+    background-color: #adadad;
+
+    font-weight: bold;
+}
