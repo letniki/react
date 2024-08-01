@@ -1,10 +1,11 @@
 import React from 'react';
-import {useAppContext} from "./ContextComponent";
+import {useStore} from "./store";
+
 
 
 
 const Incrementor = () => {
-    const {inc} = useAppContext();
+    const {inc} = useStore();
     return (
         <div>
             <button onClick={inc}>increment</button>

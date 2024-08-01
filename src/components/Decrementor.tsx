@@ -1,8 +1,8 @@
 import React from 'react';
-import {useAppContext} from "./ContextComponent";
+import {useStore} from "./store";
 
 const Decrementor =() => {
-    const {dec}= useAppContext();
+    const {dec} = useStore();
     return (
         <div>
             <button onClick={dec}>decrement</button>

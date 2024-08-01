@@ -1,8 +1,8 @@
 import React from 'react';
-import {useAppContext} from "./ContextComponent";
+import {useStore} from "./store";
 
 const MainComponent = () => {
-   const {counter} = useAppContext();
+   const {counter} = useStore();
     return (
         <div>
             {counter}
