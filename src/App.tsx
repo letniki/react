@@ -1,25 +1,24 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import './App.css';
-import {decrement, increment, incrementByAmount, useAppDispatch, useAppSelector} from "./redux/store";
-import {useDispatch} from "react-redux";
+import {useAppDispatch, useAppSelector} from "./redux/store";
+import {userActions} from "./redux/slices/userSlice";
+import {findAllByDisplayValue} from "@testing-library/react";
+import {postActions} from "./redux/slices/postSlice";
 
 const App: FC = ()=> {
-    const value=useAppSelector(state => {
-        return state.counter1SliceState.value
-    });
+    let {userSlice:{users, usersIsLoaded}, postSlice:{posts, postsIsLoaded }}=useAppSelector(state => state);
+
     const dispatch = useAppDispatch();
-  return (
+    useEffect(() => {
+        dispatch(userActions.loadUsers());
+        dispatch(postActions.loadPosts());
+    }, []);
+    return (
     <div>
-        <h2>{value}</h2>
-      <button onClick={()=>{
-         dispatch(increment());
-      }}> increment</button>
-        <button onClick={() => {
-            dispatch(decrement())
-        }}> decrement</button>
-        <button onClick={()=>{
-            dispatch(incrementByAmount(100))
-        }}>increment by 100</button>
+        {!usersIsLoaded && <div>Loading users in process</div>}
+        {users.map(user=><div key={user.id}>{user.name}</div>)}
+        {!postsIsLoaded && <div>Loading posts in process</div>}
+        {posts.map(post=><div key={post.id}><h4>{post.title}</h4><p>{post.body}</p></div>)}
     </div>
   );
 }
