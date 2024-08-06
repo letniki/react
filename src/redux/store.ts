@@ -14,4 +14,4 @@ export const store = configureStore({
 
 
 export const useAppDispatch = useDispatch.withTypes<typeof store.dispatch>();
-export const useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>(); //todo live template
+export const useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>();
